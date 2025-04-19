@@ -1,13 +1,27 @@
-import { React, useState } from "react";
-import "c:/Users/New hi-tech/Desktop/Projects/movie_app/src/App.css";
+import { React, useEffect, useState } from "react";
+import "../../App.css";
+import { CircularProgress } from "@mui/material";
 
-export const Search = (handleSearch) => {
+export const Search = ({ handleSearch }) => {
   const [inputText, setInputText] = useState("");
+  const [searchLoader, setSearchLoader] = useState(false);
 
   const handleInitSearch = () => {
     handleSearch(inputText);
     console.log(inputText, "from the form");
   };
+
+  useEffect(() => {
+    const DelayDebounce = setTimeout(() => {
+      console.log(inputText, "search input");
+      handleInitSearch();
+      setSearchLoader(false);
+    }, 500);
+    return () => {
+      clearTimeout(DelayDebounce);
+      setSearchLoader(true);
+    };
+  }, [inputText]);
 
   return (
     <div className="SearchForm">
@@ -21,7 +35,7 @@ export const Search = (handleSearch) => {
         placeholder="Search Movie Name"
       />
       <button className="BtnStyle" onClick={handleInitSearch}>
-        Search
+        {searchLoader ? <CircularProgress size="20px" /> : "Search"}
       </button>
     </div>
   );

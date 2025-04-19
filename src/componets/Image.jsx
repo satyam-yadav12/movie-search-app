@@ -1,5 +1,5 @@
 import React from "react";
-import "c:/Users/New hi-tech/Desktop/Projects/movie_app/src/App.css";
+import "../App.css";
 import { Router, useNavigate, useParams } from "react-router-dom";
 
 export const Image = ({ image, movieName, alt, year }) => {

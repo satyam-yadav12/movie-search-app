@@ -1,8 +1,11 @@
 import React from "react";
-import { Search } from "./Search";
-import { AboutApp } from "./AboutApp";
-import { AllImages } from "./AllImages";
+
+import { Home } from "./Home";
 
 export const AllMovies = () => {
-  return <div>hi</div>;
+  return (
+    <div>
+      <Home />
+    </div>
+  );
 };

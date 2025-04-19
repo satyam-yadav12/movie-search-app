@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Search } from "./Search";
-import { ButtonForSearch } from "../../componets/ButtonForSearch";
-import "c:/Users/New hi-tech/Desktop/Projects/movie_app/src/App.css";
+
+import "../../App.css";
+
 import { AboutApp } from "./AboutApp";
 
 import { AllImages } from "./AllImages";
@@ -14,7 +15,10 @@ export const Home = () => {
   };
 
   return (
-    <div className="root" style={{ height: "100vh", position: "absolute" }}>
+    <div
+      className="root"
+      style={{ height: "max-content", position: "absolute" }}
+    >
       <div className="SearchForm">
         <Search handleSearch={handleSearch} />
       </div>

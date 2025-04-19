@@ -1,9 +1,17 @@
 import React from "react";
-import "c:/Users/New hi-tech/Desktop/Projects/movie_app/src/App.css";
+import "../../App.css";
+import { useNavigate } from "react-router-dom";
 
 export const SpecMovieDetail = (props) => {
+  const navigateToHome = useNavigate();
+  const navigateHome = () => {
+    navigateToHome("/");
+  };
   return (
-    <div className="outer-container">
+    <div
+      className="outer-container"
+      style={{ height: "max-content", position: "absolute" }}
+    >
       <h1>TVMaze</h1>
       <div className="MovieSpecs">
         <div className="movie-poster">
@@ -56,6 +64,12 @@ export const SpecMovieDetail = (props) => {
               <strong>director: </strong>
               {props.director}
             </p>
+
+            <div>
+              <button className="getBack" onClick={navigateHome}>
+                Go To Home Page
+              </button>
+            </div>
           </div>
         </div>
       </div>

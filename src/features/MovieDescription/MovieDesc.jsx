@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { SpecMovieDetail } from "./SpecMovieDetail";
+import { CircularProgress } from "@mui/material";
 
 // (poster, movieName, imdbRate, rottenTomatoes, ratings, runtime, genre, aboutMovie, actor, director, awards)
 
@@ -9,7 +10,7 @@ export const MovieDesc = () => {
   const [JsonData, setJsonData] = useState([]);
   const [loading, setloading] = useState(true);
   const { id } = useParams();
-  console.log(id, "hi its me");
+
   const movieSearch = () => {
     console.log(id, "personalized search");
     axios
@@ -50,9 +51,10 @@ export const MovieDesc = () => {
           awards={JsonData.Awards}
         />
       ) : (
-        <div>loading</div>
+        <div className="the-loader">
+          <CircularProgress />
+        </div>
       )}
-      ;
     </div>
   );
 };
