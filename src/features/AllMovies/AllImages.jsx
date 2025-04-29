@@ -4,13 +4,13 @@ import { Image } from "../../componets/Image";
 import "../../App.css";
 
 export const AllImages = ({ MovieType }) => {
-  const BaseUrl = `${process.env.REACT_APP_BASE_URL}/?s=${MovieType}&apikey=5c8be314`;
+  const BaseUrl = `${process.env.REACT_APP_BASE_URL}/?s=${MovieType}&apikey=${process.env.REACT_API_KEY}`;
   const [movies, setMovies] = useState([]);
   const [Error, setError] = useState(false);
 
   const getAllMovies = async () => {
     axios.get(BaseUrl).then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
       if (response.data.Search) {
         setMovies(response.data.Search);
         setError(false);

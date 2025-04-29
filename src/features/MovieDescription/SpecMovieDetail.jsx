@@ -12,7 +12,7 @@ export const SpecMovieDetail = (props) => {
       className="outer-container"
       style={{ height: "max-content", position: "absolute" }}
     >
-      <h1>TVMaze</h1>
+      <h1>Movie Explorer</h1>
       <div className="MovieSpecs">
         <div className="movie-poster">
           <img src={props.poster} alt={props.movieName} />

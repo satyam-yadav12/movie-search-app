@@ -12,11 +12,13 @@ export const MovieDesc = () => {
   const { id } = useParams();
 
   const movieSearch = () => {
-    console.log(id, "personalized search");
+    // console.log(id, "personalized search");
     axios
-      .get(`${process.env.REACT_APP_BASE_URL}/?i=${id}&apikey=5c8be314`)
+      .get(
+        `${process.env.REACT_APP_BASE_URL}/?i=${id}&apikey=${process.env.REACT_API_KEY}`
+      )
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         setJsonData(response.data);
       })
       .finally(() => {

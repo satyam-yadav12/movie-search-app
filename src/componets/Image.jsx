@@ -1,13 +1,13 @@
 import React from "react";
 import "../App.css";
-import { Router, useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const Image = ({ image, movieName, alt, year }) => {
   const navigate = useNavigate();
-  const params = useParams();
+  // const params = useParams();
 
   const getSpecificMovie = () => {
-    console.log(alt);
+    // console.log(alt);
     navigate(`/movies/${alt}`);
     // params.id;
   };

@@ -8,12 +8,10 @@ export const Search = ({ handleSearch }) => {
 
   const handleInitSearch = () => {
     handleSearch(inputText);
-    console.log(inputText, "from the form");
   };
 
   useEffect(() => {
     const DelayDebounce = setTimeout(() => {
-      console.log(inputText, "search input");
       handleInitSearch();
       setSearchLoader(false);
     }, 500);
