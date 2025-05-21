@@ -10,7 +10,11 @@ export const SpecMovieDetail = (props) => {
   return (
     <div
       className="outer-container"
-      style={{ height: "max-content", position: "absolute" }}
+      style={{
+        height: "max-content",
+        minHeight: "100vh",
+        position: "absolute",
+      }}
     >
       <h1>Movie Explorer</h1>
       <div className="MovieSpecs">

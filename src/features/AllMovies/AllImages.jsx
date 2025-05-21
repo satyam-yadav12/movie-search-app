@@ -2,11 +2,13 @@ import { React, useEffect, useState } from "react";
 import axios from "axios";
 import { Image } from "../../componets/Image";
 import "../../App.css";
+import { LinearProgress } from "@mui/material";
 
 export const AllImages = ({ MovieType }) => {
-  const BaseUrl = `${process.env.REACT_APP_BASE_URL}/?s=${MovieType}&apikey=${process.env.REACT_API_KEY}`;
+  const BaseUrl = `${process.env.REACT_APP_BASE_URL}/?s=${MovieType}&apikey=${process.env.REACT_APP_API_KEY}`;
   const [movies, setMovies] = useState([]);
   const [Error, setError] = useState(false);
+  const [isUpdating, setIsUpdating] = useState(false);
 
   const getAllMovies = async () => {
     axios.get(BaseUrl).then((response) => {
@@ -22,11 +24,22 @@ export const AllImages = ({ MovieType }) => {
   };
 
   useEffect(() => {
+    setIsUpdating(true);
+
+    setTimeout(() => {
+      setIsUpdating(false);
+    }, 2000);
+  }, [MovieType]);
+
+  useEffect(() => {
     getAllMovies();
   }, [MovieType]);
 
   return (
     <div className="AllMovies">
+      <div style={{ position: "fixed", width: "90%" }}>
+        {isUpdating ? <LinearProgress /> : "hi"}
+      </div>
       {Error ? (
         <div className="not-movie">Movie Not Found</div>
       ) : (

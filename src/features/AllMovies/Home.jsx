@@ -24,6 +24,7 @@ export const Home = () => {
       </div>
 
       <AboutApp />
+
       {query ? (
         <AllImages MovieType={query} />
       ) : (

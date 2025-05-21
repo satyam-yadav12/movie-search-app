@@ -15,7 +15,7 @@ export const MovieDesc = () => {
     // console.log(id, "personalized search");
     axios
       .get(
-        `${process.env.REACT_APP_BASE_URL}/?i=${id}&apikey=${process.env.REACT_API_KEY}`
+        `${process.env.REACT_APP_BASE_URL}/?i=${id}&apikey=${process.env.REACT_APP_API_KEY}`
       )
       .then((response) => {
         // console.log(response);
