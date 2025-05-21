@@ -37,8 +37,8 @@ export const AllImages = ({ MovieType }) => {
 
   return (
     <div className="AllMovies">
-      <div style={{ position: "fixed", width: "90%" }}>
-        {isUpdating ? <LinearProgress /> : "hi"}
+      <div style={{ position: "absolute", width: "90%" }}>
+        {isUpdating ? <LinearProgress /> : ""}
       </div>
       {Error ? (
         <div className="not-movie">Movie Not Found</div>
