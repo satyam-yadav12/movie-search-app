@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from "react";
+import { React, useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import { Image } from "../../componets/Image";
 import "../../App.css";
@@ -10,7 +10,7 @@ export const AllImages = ({ MovieType }) => {
   const [Error, setError] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
 
-  const getAllMovies = async () => {
+  const getAllMovies = useCallback(() => {
     axios.get(BaseUrl).then((response) => {
       // console.log(response.data);
       if (response.data.Search) {
@@ -21,7 +21,7 @@ export const AllImages = ({ MovieType }) => {
       }
       // response.data.Search ? setMovies(response.data.Search) : setError(true);
     });
-  };
+  }, [BaseUrl]);
 
   useEffect(() => {
     setIsUpdating(true);
@@ -33,7 +33,7 @@ export const AllImages = ({ MovieType }) => {
 
   useEffect(() => {
     getAllMovies();
-  }, [MovieType]);
+  }, [getAllMovies]);
 
   return (
     <div className="AllMovies">
