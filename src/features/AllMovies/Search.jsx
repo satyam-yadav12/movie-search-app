@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from "react";
+import { React, useCallback, useEffect, useState } from "react";
 import "../../App.css";
 import { CircularProgress } from "@mui/material";
 
@@ -6,9 +6,9 @@ export const Search = ({ handleSearch }) => {
   const [inputText, setInputText] = useState("");
   const [searchLoader, setSearchLoader] = useState(false);
 
-  const handleInitSearch = () => {
+  const handleInitSearch = useCallback(() => {
     handleSearch(inputText);
-  };
+  }, [handleSearch, inputText]);
 
   useEffect(() => {
     const DelayDebounce = setTimeout(() => {
@@ -19,7 +19,7 @@ export const Search = ({ handleSearch }) => {
       clearTimeout(DelayDebounce);
       setSearchLoader(true);
     };
-  }, [inputText]);
+  }, [inputText, handleInitSearch]);
 
   return (
     <div className="SearchForm">

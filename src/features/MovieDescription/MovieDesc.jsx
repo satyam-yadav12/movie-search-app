@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { SpecMovieDetail } from "./SpecMovieDetail";
 import { CircularProgress } from "@mui/material";
@@ -11,7 +11,7 @@ export const MovieDesc = () => {
   const [loading, setloading] = useState(true);
   const { id } = useParams();
 
-  const movieSearch = () => {
+  const movieSearch = useCallback(() => {
     // console.log(id, "personalized search");
     axios
       .get(
@@ -24,13 +24,13 @@ export const MovieDesc = () => {
       .finally(() => {
         setloading(false);
       });
-  };
+  }, [id]);
 
   useEffect(() => {
     if (id !== "") {
       movieSearch();
     }
-  }, [id]);
+  }, [id, movieSearch]);
 
   return (
     <div>
