@@ -16,7 +16,7 @@ export const SpecMovieDetail = (props) => {
         position: "absolute",
       }}
     >
-      <h1>Movie Explorer</h1>
+      <h1>Film Explorer</h1>
       <div className="MovieSpecs">
         <div className="movie-poster">
           <img src={props.poster} alt={props.movieName} />

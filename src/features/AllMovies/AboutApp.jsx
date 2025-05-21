@@ -5,7 +5,7 @@ export const AboutApp = () => {
   return (
     <div className="AboutDesc">
       <div>
-        <p className="app-title">Movie Explorer</p>
+        <p className="app-title">Film Explorer</p>
         <p className="tag-line">
           The first online streaming movie search engine
         </p>
@@ -13,14 +13,14 @@ export const AboutApp = () => {
 
       <div>
         <p className="app-desc">
-          Movie Explorer is a free app that helps people find movies and shows
+          Film Explorer is a free app that helps people find movies and shows
           they want to watch. We have over 1 million titles and we're adding
           content daily. You can use our app to browse movies, tv shows,
           documentaries, anime, cartoons, live streams, music videos and much
           more!
         </p>
         <p className="app-desc">
-          Movie Explorer is a free online video search engine that allows users
+          Film Explorer is a free online video search engine that allows users
           to find videos based on keywords. Users can search any type of video
           including movies, music videos, documentaries, short films, etc.
         </p>
